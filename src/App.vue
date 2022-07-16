@@ -1,9 +1,11 @@
 <script setup lang="ts">
-  import NavBar from './components/NavBar.vue';
+import NavBar from './components/NavBar.vue';
+import CategoryTest from './components/CategoryTest.vue';
 </script>
 
 <template>
   <NavBar />
+  <CategoryTest />
 </template>
 
 <style>
@@ -13,10 +15,9 @@
   --primary-text: #eee;
   --secondary-text: #bbb;
 
-
   background-color: var(--primary-bg);
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
