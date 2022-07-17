@@ -19,16 +19,19 @@ const displayedCutoff = formatDuration(cutoff);
 <template>
   <section class="category">
     <p class="name">{{ props.categoryInfo.categoryName }}</p>
-    <b>10% Cutoff</b> {{ displayedCutoff }}&emsp;<b>WR</b> {{ displayedWr }}
+    <span class="cutoff"><b>{{ displayedCutoff }}</b></span><span class="wr">WR <b>{{ displayedWr }}</b></span>
   </section> 
 </template>
 
 <style scoped>
 .category {
+  --margin: .3rem;
+  --padding: .6rem;
+  width: calc(50% - 2 * var(--margin) - 2 * var(--padding));
   color: var(--primary-text);
   background-color: rgba(0, 0, 0, 0.2);
-  margin: .5rem 1rem;
-  padding: 0.3rem;
+  margin: var(--margin);
+  padding: var(--padding);
   border-radius: 0.3rem;
 }
 
@@ -37,5 +40,14 @@ const displayedCutoff = formatDuration(cutoff);
   margin: 0;
   padding: 0;
   display: block;
+}
+
+.cutoff {
+  min-width: 8rem;
+  display: inline-block;
+}
+
+.wr {
+  color: var(--secondary-text);
 }
 </style>

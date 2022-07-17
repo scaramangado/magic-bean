@@ -1,5 +1,5 @@
 <script setup lang="ts">import { getCategoriesForGame } from '../speedruncom/client';
-import CategoryLine from './CategoryLine.vue';
+import CategoryDisplay from './CategoryDisplay.vue';
 
 export interface GameViewProps {
   gameId: string;
@@ -12,5 +12,16 @@ const categories = await getCategoriesForGame(props.gameId);
 </script>
 
 <template>
-  <CategoryLine v-for="category in categories" :category-info="category" />
+  <div id="category-list">
+    <CategoryDisplay v-for="category in categories" :category-info="category" />
+  </div>
 </template>
+
+<style scoped>
+#category-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 .5rem;
+}
+</style>
