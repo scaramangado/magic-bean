@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  magic-bean:
+    image: ghcr.io/scaramangado/magic-bean/emulator-cutoffs:latest
+    container_name: magic-bean
+    restart: unless-stopped
+    ports:
+      - "2022:80"
+    networks:
+      - nginx
+
+networks:
+  nginx:
+    name: nginx
+    external: true
