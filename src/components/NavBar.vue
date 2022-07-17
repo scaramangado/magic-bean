@@ -1,8 +1,8 @@
 <template>
   <div id="navbar">
-    <img id="logo" src="../assets/magic-bean-small.png" />
-    <div class="navitem active">Main Categories</div>
-    <div class="navitem">Extension Categories</div>
+    <RouterLink id="logo" to="/"><img id="logo" src="../assets/magic-bean-small.png" /></RouterLink>
+    <RouterLink class="navitem" to="/oot">Main Categories</RouterLink>
+    <RouterLink class="navitem" to="/ootextras">Extension Categories</RouterLink>
   </div>
 </template>
 
@@ -31,9 +31,10 @@ ul {
   display: flex;
   margin-left: .6em;
   color: var(--secondary-text);
+  text-decoration: none;
 }
 
-.active {
+.router-link-active {
   color: var(--primary-text);
 }
 </style>

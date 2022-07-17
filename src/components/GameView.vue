@@ -22,6 +22,6 @@ const categories = await getCategoriesForGame(props.gameId);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 0 .5rem;
+  padding: 0 .5rem .5rem;
 }
 </style>

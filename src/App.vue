@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import NavBar from './components/NavBar.vue';
-import GameView from './components/GameView.vue';
-import { oot } from './speedruncom/model';
 </script>
 
 <template>
   <div id="app">
     <NavBar />
     <Suspense>
-      <GameView :game-id="oot" />
+      <RouterView />
     </Suspense>
   </div>
 </template>
@@ -18,7 +16,7 @@ import { oot } from './speedruncom/model';
   --primary-bg: #333;
   --secondary-bg: #600;
   --primary-text: #eee;
-  --secondary-text: #bbb;
+  --secondary-text: #999;
 
   background-color: var(--primary-bg);
   box-sizing: border-box;
