@@ -18,7 +18,7 @@ export interface SrcCategoryVariable {
   values: { values: { [value: string]: { label: string; }; }; };
 }
 
-export interface SrcRecords {
+export interface SrcLeaderboard {
   runs: SrcRun[];
 }
 

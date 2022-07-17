@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import NavBar from './components/NavBar.vue';
-import CategoryTest from './components/CategoryTest.vue';
+import GameView from './components/GameView.vue';
+import { oot } from './speedruncom/model';
 </script>
 
 <template>
   <NavBar />
-  <CategoryTest />
+  <Suspense>
+    <GameView :game-id="oot" />
+  </Suspense>
 </template>
 
 <style>

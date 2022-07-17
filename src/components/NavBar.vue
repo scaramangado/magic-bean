@@ -10,11 +10,11 @@
 #navbar {
   background-color: var(--secondary-bg);
   display: flex;
-  width: calc(100vw - 1.6em);
-  height: 50px;
-  margin: .5em;
-  border-radius: .5em;
-  padding: .3em;
+  width: calc(100vw - 1.6rem);
+  height: 2.8rem;
+  margin: .5rem;
+  border-radius: .5rem;
+  padding: .3rem;
   flex-direction: row;
   align-items: center;
 }

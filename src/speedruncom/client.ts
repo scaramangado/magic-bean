@@ -1,5 +1,5 @@
 import { Category, Variable } from '../model/appTypes';
-import { SrcCategory, SrcRecords, SrcWrapper } from "./model";
+import { SrcCategory, SrcLeaderboard, SrcWrapper } from "./model";
 import { Duration } from "luxon";
 
 const downloadCategories = async (key: string): Promise<SrcCategory[]> => {
@@ -44,13 +44,13 @@ const convertCategory = (gameId: string, srcCategory: SrcCategory): Category[] =
   return categories;
 };
 
-export const downloadWorldRecord = async (category: Category): Promise<Duration> => {
+export const getWorldRecord = async (category: Category): Promise<Duration> => {
 
-  const baseUrl = `https://www.speedrun.com/api/v1/categories/${category.categoryId}/records?`;
+  const baseUrl = `https://www.speedrun.com/api/v1/leaderboards/${category.gameId}/category/${category.categoryId}?top=1&`
   const query = category.variables.map(v => `var-${v.variableId}=${v.valueId}`).join("&");
   const url = baseUrl + query;
 
-  const records = (await ((await fetch(url)).json()) as SrcWrapper<SrcRecords[]>).data[0];
+  const records = (await ((await fetch(url)).json()) as SrcWrapper<SrcLeaderboard>).data;
 
   return Duration.fromISO(records.runs[0].run.times.primary);
 };
