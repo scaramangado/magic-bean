@@ -5,10 +5,12 @@ import { oot } from './speedruncom/model';
 </script>
 
 <template>
-  <NavBar />
-  <Suspense>
-    <GameView :game-id="oot" />
-  </Suspense>
+  <div id="app">
+    <NavBar />
+    <Suspense>
+      <GameView :game-id="oot" />
+    </Suspense>
+  </div>
 </template>
 
 <style>
@@ -25,5 +27,10 @@ import { oot } from './speedruncom/model';
 
 body {
   margin: 0px;
+}
+
+#app {
+  max-width: 1080px;
+  margin: auto;
 }
 </style>
