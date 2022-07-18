@@ -8,7 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "fuse.js": "^6.6.2",
     "luxon": "^3.0.1",
+    "pinia": "^2.0.16",
     "vue": "^3.2.25",
     "vue-router": "^4.1.2"
   },

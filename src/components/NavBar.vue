@@ -1,8 +1,15 @@
+<script setup lang="ts">
+import FilterTextField from './FilterTextField.vue';
+</script>
+
 <template>
   <div id="navbar">
-    <RouterLink id="logo" to="/"><img id="logo" src="../assets/magic-bean-small.png" /></RouterLink>
+    <RouterLink id="logo" to="/">
+      <img id="logo" src="../assets/magic-bean-small.png" />
+    </RouterLink>
     <RouterLink class="navitem" to="/oot">Main Categories</RouterLink>
     <RouterLink class="navitem" to="/ootextras">Extension Categories</RouterLink>
+    <FilterTextField />
   </div>
 </template>
 
@@ -12,9 +19,9 @@
   display: flex;
   width: calc(100% - 1.6rem);
   height: 2.8rem;
-  margin: .5rem;
-  border-radius: .5rem;
-  padding: .3rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.3rem;
   flex-direction: row;
   align-items: center;
 }
@@ -29,7 +36,7 @@ ul {
 
 .navitem {
   display: flex;
-  margin-left: .6em;
+  margin-left: 0.6em;
   color: var(--secondary-text);
   text-decoration: none;
 }
