@@ -53,6 +53,12 @@ const displayedCutoff = computed(() => cutoff.value && formatDuration(cutoff.val
   border-radius: 0.3rem;
 }
 
+@media only screen and (max-width: 479px) {
+  .category {
+    width: 100%;
+  }
+}
+
 .name {
   font-weight: bold;
   margin: 0;
