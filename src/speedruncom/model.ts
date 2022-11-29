@@ -14,7 +14,7 @@ export interface SrcCategory {
 
 export interface SrcCategoryVariable {
   id: string;
-  scope: { type: SrcCategoryVariableType; };
+  "is-subcategory": boolean;
   values: { values: { [value: string]: { label: string; }; }; };
 }
 

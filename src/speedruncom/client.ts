@@ -24,7 +24,7 @@ const convertCategory = (gameId: string, srcCategory: SrcCategory): Category[] =
     }
   ];
 
-  for (const srcVariable of srcCategory.variables.data.filter(v => v.scope.type === "global")) {
+  for (const srcVariable of srcCategory.variables.data.filter(v => v['is-subcategory'])) {
 
     const variables = Object.keys(srcVariable.values.values).map((k): Variable => ({
       variableId: srcVariable.id,
