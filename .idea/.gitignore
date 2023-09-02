@@ -1,3 +1,5 @@
 *
 !.gitignore
 !icon.png
+!codeStyles
+!codeStyles/*
