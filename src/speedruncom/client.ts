@@ -1,5 +1,5 @@
-import { Category, Variable } from '../model/appTypes';
-import { SrcCategory, SrcLeaderboard, SrcWrapper } from "./model";
+import { Category, Variable } from "../model/appTypes";
+import { SrcCategory, SrcCategoryVariable, SrcLeaderboard, SrcWrapper } from "./model";
 import { Duration } from "luxon";
 
 const downloadCategories = async (key: string): Promise<SrcCategory[]> => {
@@ -21,10 +21,13 @@ const convertCategory = (gameId: string, srcCategory: SrcCategory): Category[] =
       categoryId: srcCategory.id,
       categoryName: srcCategory.name,
       variables: [],
-    }
+    },
   ];
 
-  for (const srcVariable of srcCategory.variables.data.filter(v => v['is-subcategory'])) {
+  const srcVariablesFilter: (v: SrcCategoryVariable) => boolean = (v: SrcCategoryVariable) =>
+    v["is-subcategory"] && v.id !== "jlz2yq5l";
+
+  for (const srcVariable of srcCategory.variables.data.filter(srcVariablesFilter)) {
 
     const variables = Object.keys(srcVariable.values.values).map((k): Variable => ({
       variableId: srcVariable.id,
@@ -37,7 +40,7 @@ const convertCategory = (gameId: string, srcCategory: SrcCategory): Category[] =
         ...c,
         categoryName: c.categoryName + `, ${v.valueLabel}`,
         variables: [...c.variables, v],
-      }))
+      })),
     );
   }
 
@@ -46,7 +49,7 @@ const convertCategory = (gameId: string, srcCategory: SrcCategory): Category[] =
 
 export const getWorldRecord = async (category: Category): Promise<Duration> => {
 
-  const baseUrl = `https://www.speedrun.com/api/v1/leaderboards/${category.gameId}/category/${category.categoryId}?top=1&`
+  const baseUrl = `https://www.speedrun.com/api/v1/leaderboards/${category.gameId}/category/${category.categoryId}?top=1&`;
   const query = category.variables.map(v => `var-${v.variableId}=${v.valueId}`).join("&");
   const url = baseUrl + query;
 
@@ -57,4 +60,6 @@ export const getWorldRecord = async (category: Category): Promise<Duration> => {
 
 export const getCategoriesForGame = async (gameId: string): Promise<Category[]> =>
   downloadCategories(gameId)
-    .then(list => list.flatMap(srcCategory => convertCategory(gameId, srcCategory)));
+    .then(list =>
+      list.flatMap(srcCategory => convertCategory(gameId, srcCategory)),
+    );
