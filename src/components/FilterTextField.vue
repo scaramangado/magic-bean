@@ -1,9 +1,8 @@
-<script setup lang="ts">import { ref } from 'vue';
-import { useStore } from "../stores/filterStore";
+<script setup lang="ts">import { useStore } from "../stores/filterStore";
 
 const store = useStore();
 
-const onChange = (e: any) => store.setFilter(e.target.value)
+const onChange = (e: any) => store.setFilter(e.target.value);
 </script>
 
 <template>

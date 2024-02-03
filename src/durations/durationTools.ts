@@ -7,11 +7,11 @@ export const calculateCutoff = (wr: Duration): Duration => {
   if (wr.milliseconds) {
     cutoff = cutoff.shiftTo("hours", "minutes", "seconds", "milliseconds");
   } else {
-    cutoff=cutoff.shiftTo("hours", "minutes", "seconds");
+    cutoff = cutoff.shiftTo("hours", "minutes", "seconds");
   }
 
   return cutoff.normalize();
-}
+};
 
 export const formatDuration = (duration: Duration): string => {
 

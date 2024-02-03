@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FilterTextField from './FilterTextField.vue';
+import FilterTextField from "./FilterTextField.vue";
 </script>
 
 <template>

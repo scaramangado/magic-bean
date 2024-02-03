@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import GameView from './GameView.vue';
+import GameView from "./GameView.vue";
 import { ootextras } from "../speedruncom/model";
 
 const gameId = ootextras;

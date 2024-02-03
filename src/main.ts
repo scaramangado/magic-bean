@@ -6,8 +6,8 @@ import ExtensionsView from "./components/ExtensionsView.vue";
 import { createPinia } from "pinia";
 
 const routes: RouteRecordRaw[] = [
-  { path: "/", component: MainGameView, alias: "/oot" },
-  { path: "/ootextras", component: ExtensionsView },
+  {path: "/", component: MainGameView, alias: "/oot"},
+  {path: "/ootextras", component: ExtensionsView},
 ];
 
 const router = createRouter({
@@ -20,4 +20,4 @@ const pinia = createPinia();
 const app = createApp(App);
 app.use(router);
 app.use(pinia);
-app.mount('#app');
+app.mount("#app");

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import { Duration } from 'luxon';
-import { calculateCutoff, formatDuration } from '../durations/durationTools';
-import { Category } from '../model/appTypes';
-import { getWorldRecord } from '../speedruncom/client';
+import { computed, ref } from "vue";
+import { Duration } from "luxon";
+import { calculateCutoff, formatDuration } from "../durations/durationTools";
+import { Category } from "../model/appTypes";
+import { getWorldRecord } from "../speedruncom/client";
 
 export interface CategoryLineProps {
   categoryInfo: Category;
@@ -17,7 +17,7 @@ try {
   wr.value = await getWorldRecord(props.categoryInfo);
 } catch (e: unknown) {
   console.error(
-    `Failed to download WR for category '${props.categoryInfo.categoryName}'`
+    `Failed to download WR for category '${props.categoryInfo.categoryName}'`,
   );
 }
 

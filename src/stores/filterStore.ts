@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { getTransitionRawChildren } from "vue";
 
 export interface FilterState {
   filterString: string;
@@ -19,5 +18,5 @@ export const useStore = defineStore("filter", {
     clearFilter() {
       this.filterString = "";
     },
-  }
+  },
 });
