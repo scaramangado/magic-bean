@@ -5,7 +5,7 @@
   "scripts": {
     "start": "vite --open",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --open"
   },
   "dependencies": {
     "fuse.js": "^7.0.0",
